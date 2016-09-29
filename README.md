@@ -1,15 +1,25 @@
 # Rabbit Probe
 
-CLI utility to observe the behavior of a topology/consumers
-by publishing messages to an exchange from a provided JSON schema. Also meant as a way to dive into Go :]
+CLI utility for observing the behavior of a topology/consumers by publishing messages over time
+
+### Usage
+
+```rabbit-probe quick``` displays available commands
+```rabbit-probe \<command\> -h``` displays options and examples for a particular command
+
+
+### Modes
+
+This section describes the various commands that are available. For a detailed description of available flags and examples
+run a command with the -h flag (ex: ```rabbit-probe quick -h```)
+
+quick: publishes a message to an exchange over a duration of time. Only json message bodies are supported
+
 
 TODOs/Ideas:
 
-- Read schema from a file
-- Produce messages from schema
-  * would be cool to produce malformed messages
-- Publish based on a frequency
-  * would be cool to have a config to drive this
-  * number of messages, simulate burst, steady stream, etc
-- Maybe set up a reply-to queue for consumers that support it
-- Support content types other than JSON (thrift, protobuf, etc)
+* Support other message bodies besides JSON outside of quick mode (content-type header)
+* Provide a mode that starts probes via a yml file with more fliexible options
+  * options such as warm up time
+  * variations of the default message (or a collection of messages ) to simulate failure conditions of consumers
+* Load testing mode
