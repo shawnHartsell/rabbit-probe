@@ -1,6 +1,0 @@
-package: github.com/shawnHartsell/rabbit-probe
-import:
-- package: github.com/streadway/amqp
-- package: github.com/spf13/cobra
-  subpackages:
-  - cobra
